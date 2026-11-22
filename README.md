@@ -93,4 +93,4 @@ Mechanical buttons oscillate for a few milliseconds when pressed or released. At
 | Name | GitHub |
 |---|---|
 | Bruna Barrientos | [@BrunaBarr](https://github.com/BrunaBarr) |
-| Julia | [@juliateleseng](https://github.com/juliateleseng) |
+| Júlia Teles | [@juliateleseng](https://github.com/juliateleseng) |
