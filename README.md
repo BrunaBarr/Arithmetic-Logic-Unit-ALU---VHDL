@@ -71,7 +71,7 @@ Mechanical buttons oscillate for a few milliseconds when pressed or released. At
 3. Add `ula_spartan3an.ucf` with association **Implementation**.
 4. Run **Generate Programming File** and program the FPGA through iMPACT (Boundary Scan).
 
-## 6. Operation on the board
+## 5. Operation on the board
 
 1. BTN_WEST resets the circuit; only LED4 remains lit.
 2. The operation code is set on SW2..SW0 and confirmed with BTN_SOUTH.
@@ -79,7 +79,7 @@ Mechanical buttons oscillate for a few milliseconds when pressed or released. At
 4. Operand B is set on SW3..SW0 and confirmed with BTN_SOUTH; the result and flags are then displayed.
 5. A further press of BTN_SOUTH starts a new operation.
 
-### 6.1 Test cases
+### 5.1 Test cases
 
 | Code | A | B | LEDs (LED7..LED0) | Remark |
 |:---:|:---:|:---:|:---:|---|
@@ -88,7 +88,7 @@ Mechanical buttons oscillate for a few milliseconds when pressed or released. At
 | `001` | `0101` (5) | `0101` (5) | `1010 0000` | zero result, no borrow |
 | `001` | `0011` (3) | `0101` (5) | `0100 1110` | 3 − 5 = −2 (negative) |
 
-## 7. Authors
+## 6. Authors
 
 | Name | GitHub |
 |---|---|
