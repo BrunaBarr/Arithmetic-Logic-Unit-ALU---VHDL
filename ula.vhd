@@ -1,24 +1,14 @@
 --------------------------------------------------------------------------------
--- ula_simples.vhd
--- 4-bit ALU with 8 operations - everything in ONE file.
--- Board: Xilinx Spartan-3AN Starter Kit (XC3S700AN-FGG484, 50 MHz clock).
---
--- How to use:
---   1) Set the opcode on SW(2:0) and press BTN_OK
---   2) Set operand A on SW(3:0) and press BTN_OK
---   3) Set operand B on SW(3:0) and press BTN_OK
---   4) LEDs show: LED7=Z LED6=N LED5=C LED4=V, LED3..0 = result
---   Press BTN_OK again to start over. BTN_RST = reset.
---
--- Opcodes: 000 ADD, 001 SUB, 010 AND, 011 OR,
---          100 XOR, 101 NOT A, 110 SHIFT LEFT A, 111 SHIFT RIGHT A
+-- 4-bit ALU with 8 operations
+-- Board: Xilinx Spartan-3AN Starter Kit (XC3S700AN-FGG484)
 --------------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 -- ============================================================================
--- PART 1: ENTITY = the "black box" (which pins go in and out)
+-- 1: ENTITY 
 -- ============================================================================
 entity ula_simples is
     generic (
@@ -36,7 +26,7 @@ entity ula_simples is
 end ula_simples;
 
 -- ============================================================================
--- PART 2: ARCHITECTURE = what happens inside the box
+-- 2: ARCHITECTURE 
 -- ============================================================================
 architecture behavior of ula_simples is
 
@@ -66,7 +56,7 @@ architecture behavior of ula_simples is
 begin
 
     -- ========================================================================
-    -- BLOCK 1a: SYNCHRONIZER
+    -- 1a: SYNCHRONIZER
     -- The buttons are not synchronized with the clock. Passing them through
     -- two flip-flops avoids metastability (an undefined level when the input
     -- changes exactly at the clock edge).
@@ -82,7 +72,7 @@ begin
     end process;
 
     -- ========================================================================
-    -- BLOCK 1b: DEBOUNCE + EDGE DETECTOR
+    -- 1b: DEBOUNCE + EDGE DETECTOR
     -- The button only counts as changed after staying stable for
     -- DEBOUNCE_MAX clock cycles (20 ms on the board).
     -- ========================================================================
@@ -105,7 +95,7 @@ begin
     btn_press <= btn_clean and not btn_old;
 
     -- ========================================================================
-    -- BLOCK 2: STATE MACHINE
+    -- 2: STATE MACHINE
     -- Each button press saves the switches and moves to the next state.
     -- ========================================================================
     process (CLK)
@@ -135,7 +125,7 @@ begin
     end process;
 
     -- ========================================================================
-    -- BLOCK 3: ALU (combinational - no clock)
+    -- 3: ALU (combinational)
     -- ========================================================================
     process (op, a, b)
         variable sum : unsigned(4 downto 0);       -- 5 bits: bit 4 = carry
@@ -185,8 +175,7 @@ begin
     end process;
 
     -- ========================================================================
-    -- BLOCK 4: LEDs
-    -- While typing: LED7..4 show the step, LED3..0 copy the switches.
+    -- 4: LEDs
     -- At the end:   flags + result.
     -- ========================================================================
     process (state, SW, z, n, c, v, result)
