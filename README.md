@@ -13,7 +13,7 @@ FPGA implementation of a 4-bit ALU with addition and subtraction in two's comple
 3. [State Machine](#3-state-machine)
 4. [Architecture](#4-architecture)
 5. [Repository structure](#5-repository-structure)
-6. [Implementation (Xilinx ISE 14.7)](#6-implementation-xilinx-ise-147)
+6. [Implementation (Xilinx ISE 14.7)](#6-implementation-xilinx-ise)
 7. [Operation on the board](#7-operation-on-the-board)
 8. [References](#8-references)
 9. [Authors](#9-authors)
@@ -130,7 +130,7 @@ To prevent this, `BTN_OK` goes through three stages before reaching the state ma
 └── README.md
 ```
 
-## 6. Implementation (Xilinx ISE 14.7)
+## 6. Implementation (Xilinx ISE)
 
 1. Create a project with the following settings: Family = Spartan3A and Spartan3AN, Device = XC3S700AN, Package = FGG484, Speed = -4, Preferred Language = VHDL.
 2. Add `ula.vhd` with association **All** and set it as the top module.
