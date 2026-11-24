@@ -154,6 +154,14 @@ To prevent this, `BTN_OK` goes through three stages before reaching the state ma
 | `001` | `0101` (5) | `0101` (5) | `1010 0000` | zero result, no borrow |
 | `001` | `0011` (3) | `0101` (5) | `0100 1110` | 3 − 5 = −2 (negative) |
 
+### 7.2 Test on the board
+
+<p align="center">
+  <img src="board_test.png" alt="Subtraction result on the board" width="600">
+</p>
+
+Result of the subtraction of a value by itself, obtained during the laboratory test. LEDs 7 and 5, corresponding to the Zero and Carry Out flags, are lit.
+
 ## 8. References
 
 1. ERCEGOVAC, M.; LANG, T.; MORENO, J. H. *Introdução aos Sistemas Digitais*. Porto Alegre: Bookman, 1999.
